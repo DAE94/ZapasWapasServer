@@ -81,3 +81,7 @@
 2024-03-18T09:31:49.261Z: accés a perfil correcte del usuari : test
 2024-03-18T09:31:50.131Z: accés a perfil correcte del usuari : test
 2024-03-18T09:31:55.940Z: modificació del perfil correcte del usuari : test
+2024-03-18T09:59:05.763Z: login correcte: hola
+2024-03-18T09:59:08.155Z: accés a perfil correcte del usuari : hola
+2024-03-18T09:59:14.651Z: modificació del perfil correcte del usuari : hola
+2024-03-18T09:59:30.477Z: modificació del perfil correcte del usuari : hola

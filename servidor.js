@@ -76,7 +76,7 @@ app.post('/infoPerfil', async (req,res)=>{
 
 app.post('/logs', (req, res) =>{
     const logMissatge = req.body.missatge;
-    const arxiuLogs = fs.createWriteStream('C:\\Users\\david\\IdeaProjects\\ZapasWapasServer\\logs.txt', {flags: 'a+'});
+    const arxiuLogs = fs.createWriteStream('logs.txt', {flags: 'a+'});
     arxiuLogs.end(logMissatge+'\n')
     res.json({missatge: 'log creat correctament'});
 });

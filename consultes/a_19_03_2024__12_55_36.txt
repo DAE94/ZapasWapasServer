@@ -1,0 +1,3 @@
+nom:a
+Assumpte:a
+Missatge:a

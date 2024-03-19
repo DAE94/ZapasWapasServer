@@ -98,16 +98,16 @@ app.post('/recuperarContrasenya', (req, res) => {
         from: 'daniel.gomez@institutvidreres.cat',
         to: email,
         subject: 'Canvi de contrasenya',
-        text: 'Aquí pots canviar la teva contrasenya: [link de cambio de contraseña]'
+        text: 'Aquí pots canviar la teva contrasenya: [http://localhost:4200/canviar-contrasenya]'
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error);
-            res.status(500).send('Error al enviar al enviar el correu');
+            res.json({mlog: 'Error al enviar al enviar el correu', key:`${email}`});
         } else {
             console.log('Correu enviat: ' + info.response);
-            res.status(200).send('Correu enviat');
+            res.json({mlog: 'Correu enviat', key:`${email}`});
         }
     });
 });
@@ -127,10 +127,10 @@ app.get('/verificarCorreu', async (req, res) => {
 
         await firebase.database().ref('USUARIS').child(nomUsuari).update({ verificat: true });
 
-        res.send('Usuari verificat.');
+        res.json({mlog: 'Usuari verificat', key:`${nomUsuari}`});
 
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).send('Error al verificar usuari.');
+        res.json({mlog: 'Error al verificar usuari', key:`${nomUsuari}`});
     }
 });

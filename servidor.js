@@ -44,7 +44,7 @@ app.listen(port, ()=> {
 app.get('/login', async (req, res)=>{
     const { usuari, password } = req.query;
     const usuariRef = db.collection('USUARIS');
-    const snapshot = await usuariRef.where('usuari', '==', usuari).where('password', '==', password).get();
+    const snapshot = await usuariRef.where('usuari', '==', usuari).where('password', '==', password).where('verificat', '==', true).get();
     if (snapshot.empty){
         res.json({missatge:'Credencials incorrectes', loggin: false, mlog: 'intent login erroni: ', key:`${usuari}`});
     } else {

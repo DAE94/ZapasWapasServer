@@ -86,3 +86,70 @@
 2024-03-18T09:59:14.651Z: modificació del perfil correcte del usuari : hola
 2024-03-18T09:59:30.477Z: modificació del perfil correcte del usuari : hola
 2024-03-18T10:05:05.201Z: accés a perfil correcte del usuari : hola
+19/03/2024 - 12:30:31: accés a perfil correcte del usuari : hola
+-----------------------------------------------------
+19/03/2024 - 12:36:05: accés a perfil correcte del usuari : hola
+-----------------------------------------------------
+19/03/2024 - 12:48:19: accés a perfil correcte del usuari : hola
+-----------------------------------------------------
+19/03/2024 - 15:01:42: intent login erroni: test
+19/03/2024 - 17:15:21: intent login erroni: test
+19/03/2024 - 17:26:26: intent soft-login (canvi password) erroni: test
+19/03/2024 - 17:27:16: Soft-Login (canvi password) correcte: test
+19/03/2024 - 17:31:46: login correcte: test
+19/03/2024 - 17:31:48: accés a perfil correcte del usuari : test
+19/03/2024 - 17:31:58: modificació del perfil correcte del usuari : test
+19/03/2024 - 17:32:13: accés a perfil correcte del usuari : test
+19/03/2024 - 17:32:37: modificació del perfil correcte del usuari : test
+19/03/2024 - 17:32:38: accés a perfil correcte del usuari : test
+19/03/2024 - 17:33:08: accés a perfil correcte del usuari : test
+19/03/2024 - 17:33:15: modificació del perfil correcte del usuari : test
+19/03/2024 - 17:33:16: accés a perfil correcte del usuari : test
+19/03/2024 - 17:35:08: modificació del perfil correcte del usuari : test
+19/03/2024 - 17:38:39: accés a perfil correcte del usuari : test
+19/03/2024 - 17:42:07: accés a perfil correcte del usuari : test
+19/03/2024 - 17:42:10: accés a perfil correcte del usuari : test
+19/03/2024 - 17:53:17: accés a perfil correcte del usuari : test
+19/03/2024 - 18:50:09: accés a perfil correcte del usuari : test
+19/03/2024 - 18:59:17: accés a perfil correcte del usuari : test
+19/03/2024 - 19:02:22: accés a perfil correcte del usuari : test
+19/03/2024 - 19:23:59: accés a perfil correcte del usuari : test
+19/03/2024 - 19:25:19: modificació de password correcte del usuari : test
+19/03/2024 - 19:29:15: accés a perfil correcte del usuari : test
+19/03/2024 - 19:29:31: modificació de password correcte del usuari : test
+19/03/2024 - 19:55:24: login correcte: test
+19/03/2024 - 19:55:27: accés a perfil correcte del usuari : test
+19/03/2024 - 19:55:34: error al enviar correu per canvi de contrasenya.undefined
+19/03/2024 - 19:55:58: enviat correu per canvi de contrasenya.dae_1_@hotmail.com
+19/03/2024 - 19:59:20: login correcte: test
+19/03/2024 - 19:59:39: modificació de password correcte del usuari : test
+19/03/2024 - 20:31:52: accés a perfil correcte del usuari : test
+19/03/2024 - 20:33:50: accés a perfil correcte del usuari : test
+19/03/2024 - 20:34:42: accés a perfil correcte del usuari : test
+19/03/2024 - 20:34:49: modificació del perfil correcte del usuari : test
+19/03/2024 - 20:35:00: accés a perfil correcte del usuari : test
+19/03/2024 - 20:35:07: modificació del perfil correcte del usuari : test
+19/03/2024 - 20:50:43: intent login erroni: test
+19/03/2024 - 20:51:02: intent soft-login (verificar correu) erroni: test
+19/03/2024 - 20:51:26: Soft-Login (verificar correu) correcte: test
+19/03/2024 - 21:00:55: Soft-Login (verificar correu) correcte: test
+19/03/2024 - 21:24:34: creació d'usuari: testA
+19/03/2024 - 21:25:37: creació d'usuari: testABC
+19/03/2024 - 21:29:17: creació d'usuari: testCCC
+19/03/2024 - 21:29:42: creació d'usuari: testFFF
+19/03/2024 - 21:35:22: Soft-Login (verificar correu) correcte: testFFF
+19/03/2024 - 21:35:25: verificació de correu del usuari : testFFF
+19/03/2024 - 21:37:00: intent login erroni: test
+19/03/2024 - 21:37:02: login correcte: testFFF
+19/03/2024 - 21:37:08: L'usuari: testFFF ha afegit 1 'croc shrek' a la cistella
+19/03/2024 - 21:37:59: tancament de sessiótestFFF
+19/03/2024 - 21:44:05: intent login erroni: test
+19/03/2024 - 21:44:08: login correcte: testFFF
+19/03/2024 - 21:44:10: accés a perfil correcte del usuari : testFFF
+19/03/2024 - 21:44:19: modificació del perfil correcte del usuari : testFFF
+19/03/2024 - 21:44:22: enviat correu per canvi de contrasenya.dae_1_@hotmail.com
+19/03/2024 - 21:47:21: accés a perfil correcte del usuari : testFFF
+19/03/2024 - 21:48:24: tancament de sessiótestFFF
+19/03/2024 - 21:48:39: login correcte: testFFF
+19/03/2024 - 21:48:46: modificació de password correcte del usuari : testFFF
+19/03/2024 - 21:49:50: modificació de password correcte del usuari : testFFF

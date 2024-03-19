@@ -38,6 +38,10 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
+
+app.use(express.static('.'))
+app.use('/Principal', express.static('Principal'))
+
 port = 3080;
 
 app.listen(port, ()=> {
@@ -166,3 +170,4 @@ app.post('/contacte', (req,res)=>{
     writeableStream.end('Missatge:'+req.body.missatge+'\n');
 });
 
+app.use('/Principal', express.static(path.join(__dirname, 'C:\\Users\\alum-01\\Documentos\\Principal')))

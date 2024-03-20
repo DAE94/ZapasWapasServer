@@ -170,4 +170,4 @@ app.post('/contacte', (req,res)=>{
     writeableStream.end('Missatge:'+req.body.missatge+'\n');
 });
 
-app.use('/Principal', express.static(path.join(__dirname, 'C:\\Users\\alum-01\\Documentos\\Principal')))
+app.use('/Principal', express.static(path.join(__dirname, 'C:\\Users\\alum-01\\Desktop\\ZapasWapasServer\\Principal')))

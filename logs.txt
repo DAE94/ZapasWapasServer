@@ -153,3 +153,75 @@
 19/03/2024 - 21:48:39: login correcte: testFFF
 19/03/2024 - 21:48:46: modificació de password correcte del usuari : testFFF
 19/03/2024 - 21:49:50: modificació de password correcte del usuari : testFFF
+24/04/2024 - 16:19:54: intent login erroni: pau
+24/04/2024 - 16:20:06: intent login erroni: pau
+24/04/2024 - 16:20:22: login correcte: testFFF
+24/04/2024 - 16:20:51: intent soft-login (verificar correu) erroni: testFFF
+24/04/2024 - 16:20:55: tancament de sessiótestFFF
+29/04/2024 - 20:41:47: login correcte: testFFF
+29/04/2024 - 20:41:51: accés a perfil correcte del usuari : testFFF
+29/04/2024 - 20:42:42: tancament de sessiótestFFF
+29/04/2024 - 22:11:54: login correcte: testFFF
+29/04/2024 - 23:34:56: tancament de sessiótestFFF
+29/04/2024 - 23:38:26: L'usuari:  ha afegit 3 'Croc Barbie' a la cistella
+29/04/2024 - 23:38:37: login correcte: testFFF
+29/04/2024 - 23:45:40: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+29/04/2024 - 23:45:56: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+29/04/2024 - 23:45:57: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+29/04/2024 - 23:47:23: L'usuari: testFFF ha afegit 3 'Croc Barbie' a la cistella
+29/04/2024 - 23:59:43: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+29/04/2024 - 23:59:45: L'usuari: testFFF ha afegit 2 'Croc Barbie' a la cistella
+30/04/2024 - 00:28:41: testFFF ha realitzat una compra. Productes: . Valor: 0
+30/04/2024 - 00:29:49: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:29:50: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 00:29:55: testFFF ha realitzat una compra. Productes: 1 Croc Shrek, 1 Croc Barbie. Valor: 93.5
+30/04/2024 - 00:31:54: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:31:55: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 00:31:55: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 00:31:58: testFFF ha realitzat una compra. Productes: 1 Croc Shrek, 1 Croc Barbie, 1 Xancla Mar. Valor: 138.5
+30/04/2024 - 00:33:25: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 00:33:26: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 00:33:28: testFFF ha realitzat una compra. Productes: 1 Croc Barbie, 1 Xancla Mar. Valor: 93
+30/04/2024 - 00:37:20: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:37:23: testFFF ha realitzat una compra. Productes: 1 Croc Shrek. Valor: 45.5
+30/04/2024 - 00:39:44: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:39:56: testFFF ha realitzat una compra. Productes: 1 Croc Shrek. Valor: 45.5
+30/04/2024 - 00:44:14: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:47:16: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:47:20: testFFF ha realitzat una compra. Productes: 1 Croc Shrek. Valor: 45.5
+30/04/2024 - 00:50:28: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 00:50:29: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 00:57:14: testFFF ha realitzat una compra. Productes: 1 Croc Shrek, 1 Croc Barbie. Valor: 93.5
+30/04/2024 - 01:01:39: L'usuari: testFFF ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 01:01:39: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:01:43: testFFF ha realitzat una compra. Productes: 1 Croc Shrek, 1 Croc Barbie. Valor: 93.5
+30/04/2024 - 01:05:09: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:05:10: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 01:05:18: testFFF ha realitzat una compra. Productes: 1 Croc Barbie, 1 Xancla Mar. Valor: 93
+30/04/2024 - 01:10:36: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 01:10:37: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:10:41: testFFF ha realitzat una compra. Productes: 1 Xancla Mar, 1 Croc Barbie. Valor: 93
+30/04/2024 - 01:12:27: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:12:28: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 01:12:38: testFFF ha realitzat una compra. Productes: 1 Croc Barbie, 1 Xancla Mar. Valor: 93
+30/04/2024 - 01:15:17: L'usuari: testFFF ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:15:18: L'usuari: testFFF ha afegit 1 'Xancla Mar' a la cistella
+30/04/2024 - 01:15:22: testFFF ha realitzat una compra. Productes: 1 Croc Barbie, 1 Xancla Mar. Valor: 93
+30/04/2024 - 01:20:39: L'usuari: testFFF ha afegit 1 'Grogues' a la cistella
+30/04/2024 - 01:20:40: L'usuari: testFFF ha afegit 1 'Corazong' a la cistella
+30/04/2024 - 01:21:01: testFFF ha realitzat una compra. Productes: 1 Grogues, 1 Corazong. Valor: 98.9
+30/04/2024 - 01:29:11: L'usuari: testFFF ha afegit 1 'Astronaut' a la cistella
+30/04/2024 - 01:29:12: L'usuari: testFFF ha afegit 1 'Caga-rro' a la cistella
+30/04/2024 - 01:33:25: tancament de sessiótestFFF
+30/04/2024 - 01:33:32: intent login erroni: pau
+30/04/2024 - 01:33:52: intent login erroni: pau
+30/04/2024 - 01:34:07: login correcte: lieM
+30/04/2024 - 01:34:13: L'usuari: lieM ha afegit 1 'Astronaut' a la cistella
+30/04/2024 - 01:34:13: L'usuari: lieM ha afegit 1 'Caga-rro' a la cistella
+30/04/2024 - 01:35:07: L'usuari: lieM ha afegit 1 'Croc Shrek' a la cistella
+30/04/2024 - 01:35:09: L'usuari: lieM ha afegit 1 'Astronaut' a la cistella
+30/04/2024 - 01:48:08: L'usuari: lieM ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:48:10: L'usuari: lieM ha afegit 1 'Corazong' a la cistella
+30/04/2024 - 01:51:27: L'usuari: lieM ha afegit 1 'Croc Barbie' a la cistella
+30/04/2024 - 01:51:29: L'usuari: lieM ha afegit 1 'Corazong' a la cistella
+30/04/2024 - 01:51:30: L'usuari: lieM ha afegit 1 'Caga-rro' a la cistella

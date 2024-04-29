@@ -1,0 +1,3 @@
+nom:null
+Assumpte:null
+Missatge:null

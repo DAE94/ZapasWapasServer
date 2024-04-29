@@ -85,7 +85,16 @@
 2024-03-18T09:59:08.155Z: accés a perfil correcte del usuari : hola
 2024-03-18T09:59:14.651Z: modificació del perfil correcte del usuari : hola
 2024-03-18T09:59:30.477Z: modificació del perfil correcte del usuari : hola
+2024-03-19T09:53:50.036Z: accés a perfil correcte del usuari : a
+2024-03-19T09:54:15.007Z: creació d'usuari: Roger123
+2024-03-19T09:55:11.191Z: login correcte: Roger123
+2024-03-19T09:55:41.378Z: accés a perfil correcte del usuari : Roger123
+2024-03-19T09:55:48.352Z: accés a perfil correcte del usuari : Roger123
+2024-03-19T09:56:37.866Z: accés a perfil correcte del usuari : Roger123
+2024-03-19T09:56:39.276Z: accés a perfil correcte del usuari : Roger123
 2024-03-18T10:05:05.201Z: accés a perfil correcte del usuari : hola
+2024-03-19T09:59:02.829Z: intent login erroni: Roger123
+2024-03-19T09:59:16.533Z: intent login erroni: a
 19/03/2024 - 12:30:31: accés a perfil correcte del usuari : hola
 -----------------------------------------------------
 19/03/2024 - 12:36:05: accés a perfil correcte del usuari : hola

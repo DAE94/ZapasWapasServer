@@ -153,3 +153,22 @@
 19/03/2024 - 21:48:39: login correcte: testFFF
 19/03/2024 - 21:48:46: modificació de password correcte del usuari : testFFF
 19/03/2024 - 21:49:50: modificació de password correcte del usuari : testFFF
+19/03/2024 - 22:18:19: tancament de sessiótest
+19/03/2024 - 22:18:33: intent login erroni: test
+19/03/2024 - 22:19:01: intent login erroni: testFFF
+19/03/2024 - 22:19:06: login correcte: testFFF
+19/03/2024 - 22:21:28: creació d'usuari: lieM
+19/03/2024 - 22:21:51: intent soft-login (verificar correu) erroni: LieM
+19/03/2024 - 22:22:13: intent soft-login (verificar correu) erroni: LieM
+19/03/2024 - 22:22:18: Soft-Login (verificar correu) correcte: lieM
+19/03/2024 - 22:22:28: verificació de correu del usuari : lieM
+19/03/2024 - 22:22:46: accés a perfil correcte del usuari : lieM
+19/03/2024 - 22:23:02: modificació del perfil correcte del usuari : lieM
+19/03/2024 - 22:23:11: enviat correu per canvi de contrasenya.daniel.gomez@institutvidreres.cat
+19/03/2024 - 22:23:38: modificació de password correcte del usuari : lieM
+19/03/2024 - 22:23:40: tancament de sessiólieM
+19/03/2024 - 22:23:47: login correcte: lieM
+19/03/2024 - 22:26:50: accés a perfil correcte del usuari : lieM
+19/03/2024 - 22:30:17: accés a perfil correcte del usuari : lieM
+19/03/2024 - 22:31:52: accés a perfil correcte del usuari : lieM
+29/04/2024 - 10:40:05: L'usuari: null ha afegit 2 'croc shrek' a la cistella

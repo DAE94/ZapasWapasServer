@@ -166,3 +166,16 @@ app.post('/contacte', (req,res)=>{
     writeableStream.end('Missatge:'+req.body.missatge+'\n');
 });
 
+app.get('/consultarVentes',  (req, res) => {
+    const id = parseInt(req.query.id);
+    const dias = parseInt(req.query.dias);
+
+    console.log("req");
+    console.log(id, dias);
+
+    connection.query('SELECT SUM(pv_quantitat) AS total FROM taula_ventes WHERE pv_v_id = ? AND data_producte_comprat = CURDATE() - INTERVAL ? DAY',[id, dias], (err, rows) => {
+        if (err) {throw err}
+        console.log(rows);
+        res.json(rows);
+    })
+});

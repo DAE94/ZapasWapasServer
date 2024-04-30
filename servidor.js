@@ -11,6 +11,7 @@ const router = require('express');
 const serviceAccount = require('./.idea/botigaonline-dam-firebase-adminsdk-fkr0g-fda07391af.json');
 const string_decoder = require("string_decoder");
 const moment = require('moment');
+const mysql = require('mysql2');
 
 
 const transporter = nodemailer.createTransport({
@@ -23,6 +24,14 @@ const transporter = nodemailer.createTransport({
         //pass: 123456789Admin.
     }
 });
+const fitxer = JSON.parse(fs.readFileSync('.idea/credencials.json','utf8'));
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: fitxer.usuari,
+  password: fitxer.password,
+  database: fitxer.nom
+});
+
 
 const {crearConfigBaseDades} = require('./.idea/db.config.js'); //credencials bbdd
 const dbProd =  crearConfigBaseDades(); //connexió bbdd
@@ -52,127 +61,208 @@ port = 3080;
 app.listen(port, ()=> {
     console.log(`server escoltant el port : ${port}`);
 });
+connection.connect((err)=>{
+    if(err) throw err;
+    console.log('connected to MYSQL!')
+});
 
-// app.get('/getStockTalla', async (req, res) => {
-//     try{
-//         let {id}=req.query;
-//         const stockInfo = await initModels(dbProd).stock.findAll({
-//             where:{stock_prod_id:id
-//             },
-//             attributes:['stock_talla', 'stock_quantitat']
-//         });
-//         // Mapea los resultados a un formato JSON específico
-//         const formattedStockInfo = stockInfo.map(stock => ({
-//             stock_talla: stock.stock_talla,
-//             stock_quantitat: stock.stock_quantitat
-//         }));
-//         console.log(formattedStockInfo)
-//         return formattedStockInfo
-//     }catch (error) {
-//         console.error("Error al obtener información del stock:", error);
-//         throw error;
-//     }
-// });
+app.post('/addNewProduct', (req, res) => {
+    const { prod_nom, prod_tipus, prod_estil, prod_preuVenta, prod_preuCompra, prod_marca, prod_oferta, prod_imatge } = req.body;
+    try{
+        connection.execute(
+            'INSERT INTO productes (prod_nom, prod_tipus, prod_estil, prod_preuVenta, prod_preuCompra, prod_marca, prod_oferta, prod_imatge, prod_rating) VALUES (?,?,?,?,?,?,?,?,?)',
+            [prod_nom,prod_tipus, prod_estil, prod_preuVenta, prod_preuCompra, prod_marca, prod_oferta, prod_imatge, 0],
+            (err, result) => {
+                if (err) {
+                    console.error('Error al actualitzar productes:', err);
+                    res.json('Error intern del servidor');
+                } else {
+                    res.json('producte afegit');
+                }
+            }
+        )
+    }catch (error) {
+        console.error('Error al actualitzar stock:', error);
+        res.json('Error intern del servidor');
+    }
+});
 app.post('/removeStock', async (req, res) => {
     try {
-        const Stock = initModels(dbProd).stock;
+        const idProducte = req.body.id;
+        const quantitat = req.body.quantitat;
 
-        // Buscar el registro de stock por el ID del producto
-        const existingStock = await Stock.findOne({ where: { stock_prod_id: req.body.id } });
-
-        if (existingStock) {
-            // Restar la cantidad especificada del stock
-            existingStock.stock_quantitat -= req.body.quantitat;
-
-            // Guardar los cambios en la base de datos
-            await existingStock.save();
-
-            res.send('Stock actualizado correctamente');
-        } else {
-            // Si no se encuentra el registro de stock, devolver un mensaje de error
-            res.status(404).send('El producto no se encuentra en el inventario');
-        }
+        connection.execute(
+            'UPDATE stock SET stock_quantitat = stock_quantitat - ? WHERE stock_prod_id = ?',
+            [quantitat, idProducte],
+            (err, result) => {
+                if (err) {
+                    console.error('Error al actualitzar stock:', err);
+                    res.json('Error intern del servidor');
+                } else {
+                    if (result.affectedRows > 0) {
+                        res.json('Stock actualitzat correctament');
+                    } else {
+                        res.json('no hi ha aquest producte al inventari');
+                    }
+                }
+            }
+        );
     } catch (error) {
-        console.error('Error al actualizar el stock:', error);
-        res.status(500).send('Error interno del servidor');
+        console.error('Error al actualitzar stock:', error);
+        res.json('Error intern del servidor');
     }
+    // try {
+    //     const Stock = initModels(dbProd).stock;
+    //
+    //     // Buscar el registro de stock por el ID del producto
+    //     const existingStock = await Stock.findOne({ where: { stock_prod_id: req.body.id } });
+    //
+    //     if (existingStock) {
+    //         // Restar la cantidad especificada del stock
+    //         existingStock.stock_quantitat -= req.body.quantitat;
+    //
+    //         // Guardar los cambios en la base de datos
+    //         await existingStock.save();
+    //
+    //         res.send('Stock actualizado correctamente');
+    //     } else {
+    //         // Si no se encuentra el registro de stock, devolver un mensaje de error
+    //         res.status(404).send('El producto no se encuentra en el inventario');
+    //     }
+    // } catch (error) {
+    //     console.error('Error al actualizar el stock:', error);
+    //     res.status(500).send('Error interno del servidor');
+    // }
 });
 
 app.post('/addProducteVenut',async (req, res)=>{
-    console.log('addproduct: ',req.body);
     try {
-        const maxVId = await initModels(dbProd).ventes.max('v_id');
-        console.log(maxVId);
+        const data = moment.utc(req.body.data, 'YYYY/MM/DD').toDate();
+        // obtenir el màxim v_id de la taula 'ventes'
+        const maxVIdQuery = 'SELECT MAX(v_id) AS maxVId FROM ventes';
+        connection.execute(maxVIdQuery, async (err, result) => {
+            if (err) {
+                console.error('Error al obtener el máximo v_id:', err);
+                res.status(500).send('Error interno del servidor');
+                return;
+            }
 
-        // Insertar el registro en la base de datos
-        await initModels(dbProd).productesvenuts.create({
-            pv_v_id:maxVId,
-            pv_stock_prod_id: req.body.id,
-            pv_quantitat: req.body.quantitat
+            const maxVId = result[0].maxVId;
+
+            // Insertar el registre a la base de dades
+            const insertQuery = 'INSERT INTO productesvenuts (pv_v_id, pv_stock_prod_id, pv_quantitat, pv_data, pv_oferta, pv_preu, pv_preuFinal) VALUES (?, ?, ?, ?, ?, ?, ?)';
+            connection.execute(
+                insertQuery,
+                [maxVId, req.body.id, req.body.quantitat, data, req.body.oferta, req.body.preu, req.body.preuFinal],
+                (err, result) => {
+                    if (err) {
+                        console.error('Error al añadir productesvenuts:', err);
+                        res.status(500).send('Error interno del servidor');
+                    } else {
+                        res.send('productes afegits');
+                    }
+                }
+            );
         });
-
-        res.send('productes afegits');
     } catch (error) {
-        console.error('Error al afegir productesvenuts:', error);
+        console.error('Error al añadir productesvenuts:', error);
         res.send('Error interno del servidor');
     }
+
+    // try {
+    //     const maxVId = await initModels(dbProd).ventes.max('v_id');
+    //     console.log(maxVId);
+    //
+    //     // Insertar el registro en la base de datos
+    //     await initModels(dbProd).productesvenuts.create({
+    //         pv_v_id:maxVId,
+    //         pv_stock_prod_id: req.body.id,
+    //         pv_quantitat: req.body.quantitat
+    //     });
+    //
+    //     res.send('productes afegits');
+    // } catch (error) {
+    //     console.error('Error al afegir productesvenuts:', error);
+    //     res.send('Error interno del servidor');
+    // }
+
 });
 
 app.post('/addVenta', async (req, res) => {
-    // Parsear la fecha utilizando Moment.js y convertirla en un objeto de fecha
-    const fecha = moment.utc(req.body.data, 'YYYY/MM/DD').toDate();
+    // Parsejar la data utilitzant Moment.js i convertir-la en un objecte date
+    const data = moment.utc(req.body.data, 'YYYY/MM/DD').toDate();
+    const usuari = req.body.usuari;
 
     try {
-        // Insertar el registro en la base de datos
-        await initModels(dbProd).ventes.create({
-            v_client: req.body.usuari,
-            v_data: fecha
-        });
-
-        res.status(200).send('Venta añadida correctamente');
+        connection.execute(
+            'INSERT INTO ventes (v_client, v_data) VALUES (?, ?)',
+            [usuari, data],
+            (err, result) => {
+                if (err) {
+                    console.error('Error al afegir la venda:', err);
+                    res.json('Error intern del servidor');
+                } else {
+                    res.json('Venda afegida correctament');
+                }
+            }
+        );
     } catch (error) {
-        console.error('Error al añadir la venta:', error);
-        res.status(500).send('Error interno del servidor');
+        console.error('Error al afegir la venda:', error);
+        res.json('Error intern del servidor');
     }
+    //----------------> FET PER SEQUELIZE <--------------------
+    // try {
+    //     // Insertar el registro en la base de datos
+    //     await initModels(dbProd).ventes.create({
+    //         v_client: req.body.usuari,
+    //         v_data: fecha
+    //     });
+    //
+    //     res.status(200).send('Venta añadida correctamente');
+    // } catch (error) {
+    //     console.error('Error al añadir la venta:', error);
+    //     res.status(500).send('Error interno del servidor');
+    // }
 })
 app.get('/getProducts', async  (req, res) => {
     try {
-        // Obtener la lista de productos
+        // Obtenir la llista de productos
         const productsResult = await initModels(dbProd).productes.findAll();
 
-        // Mapear y limpiar los productos
+        //Mapeig i neteja de cada producte
         const cleanedProducts = [];
 
-        // Recorrer cada producto para obtener su stock
+        // Recorrer cada producte para obtenir stock
         for (const product of productsResult) {
-            // Crear un objeto limpio con los datos del producto
+
             const cleanedProduct = { ...product.dataValues };
 
-            // Obtener el stock correspondiente al producto actual
+            // Obtenir stock del producte actual
             const stockInfo = await initModels(dbProd).stock.findOne({
                 where: { stock_prod_id: cleanedProduct.prod_id },
                 attributes: ['stock_quantitat']
             });
 
-            // Agregar la cantidad de stock al producto actual
+            // Agregar la quantitat d' stock al producte actual
             if (stockInfo) {
                 cleanedProduct.stock_quantitat = stockInfo.stock_quantitat;
             } else {
-                // Si no hay información de stock, establecer en null
+                // Si no hi ha informació de stock, establir en null
                 cleanedProduct.stock_quantitat = null;
             }
 
-            // Agregar el producto limpio a la lista
+            // Agregar el producte net a la llista
             cleanedProducts.push(cleanedProduct);
         }
 
         // console.log(cleanedProducts);
         res.json(cleanedProducts);
     } catch (error) {
-        console.error("Error al obtener productos:", error);
-        res.json({ error: "Error al obtener productos" });
+        console.error("Error al obtenir productes: ", error);
+        res.json("Error al obtenir productes");
     }
 
+    //----------------> FET PER SEQUELIZE <--------------------
     // try {
     //     // Obtener la lista de productos
     //     const productsResult = await initModels(dbProd).productes.findAll();
@@ -252,7 +342,15 @@ app.get('/login', async (req, res)=>{
     if (snapshot.empty){
         res.json({missatge:'Credencials incorrectes', loggin: false, mlog: 'intent login erroni: ', key:`${usuari}`});
     } else {
-        res.json({missatge:'Login exitós', loggin:true, mlog: 'login correcte: ', key:`${usuari}`}); //----------->afegir camp admin<----------------
+        const snapshot2 = await usuariRef.where('usuari', '==', usuari).where('password', '==', password).where('admin', '==', true).get();
+        if (snapshot2.empty){
+            console.log("no admin")
+            res.json({missatge:'Login exitós', loggin:true, admin: false, mlog: 'login correcte: ', key:`${usuari}`});
+        } else{
+            console.log("es admin")
+            res.json({missatge:'Login exitós', loggin:true, admin: true, mlog: 'login correcte: ', key:`${usuari}`});
+        }
+
     }
 });
 app.get('/softLogin', async (req, res)=>{
@@ -367,3 +465,23 @@ app.post('/contacte', (req,res)=>{
 });
 
 app.use('/Principal', express.static(path.join(__dirname, 'C:\\Users\\alum-01\\Desktop\\ZapasWapasServer\\Principal')))
+// app.get('/getStockTalla', async (req, res) => {
+//     try{
+//         let {id}=req.query;
+//         const stockInfo = await initModels(dbProd).stock.findAll({
+//             where:{stock_prod_id:id
+//             },
+//             attributes:['stock_talla', 'stock_quantitat']
+//         });
+//         // Mapea los resultados a un formato JSON específico
+//         const formattedStockInfo = stockInfo.map(stock => ({
+//             stock_talla: stock.stock_talla,
+//             stock_quantitat: stock.stock_quantitat
+//         }));
+//         console.log(formattedStockInfo)
+//         return formattedStockInfo
+//     }catch (error) {
+//         console.error("Error al obtener información del stock:", error);
+//         throw error;
+//     }
+// });

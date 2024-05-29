@@ -190,14 +190,12 @@ app.post('/addVenta', async (req, res) => {
     const usuari = req.body.usuari;
     const moneda = req.body.moneda;
     const preu = req.body.preu;
-    const hash = req.body.hash;
-    const blocs = req.body.blocs;
-    const account = req.body.account;
+
 
     try {
         connection.execute(
-            'INSERT INTO ventes (v_client, v_data, v_moneda, v_preu, v_hash, v_blocs, v_compte) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [usuari, data, moneda, preu, hash, blocs, account],
+            'INSERT INTO ventes (v_client, v_data, v_moneda, v_preu) VALUES (?, ?, ?, ?)',
+            [usuari, data, moneda, preu],
             (err, result) => {
                 if (err) {
                     console.error('Error al afegir la venda:', err);

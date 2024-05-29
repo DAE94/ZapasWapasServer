@@ -493,3 +493,10 @@ app.use('/Principal', express.static(path.join(__dirname, 'C:\\Users\\alum-01\\D
 //         throw error;
 //     }
 // });
+
+app.get('/transaccions', (req, res) => {
+    const query = 'SELECT v_id, v_client, v_data, v_moneda, v_preu, v_hash, v_blocs, v_compte FROM ventes';
+    connection.query(query, (results) => {
+        res.json(results);
+    });
+});
